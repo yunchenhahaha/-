@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8" >
+    <title>建材物资管理系统</title>
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://cdn.staticfile.org/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background-color: #FBFBEF;
+        }
+        .top{
+            width: 100%;
+            background-color:#FFE4C4;
+            border-bottom: 1px #ddd solid;
+            line-height: 50px;
+            font-size:40px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div class="top">建材管理系统</div>
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <td>序号</td>
+                <td>建材编号</td>
+                <td>建材名称</td>
+                <td>价格</td>
+                <td>供应商</td>
+                <td>库存数量</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="building,iterStat:${buildings}">
+                <td th:text="${iterStat.index}+1"></td>
+                <td th:text="${building.bid}">建材编号</td>
+                <td th:text="${building.bname}">建材名称</td>
+                <td th:text="${building.price}">价格</td>
+                <td th:text="${building.supplier}">供应商</td>
+                <td th:text="${building.bnumber}">库存数量</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
